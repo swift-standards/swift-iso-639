@@ -191,6 +191,6 @@ extension ISO_639.Alpha2: CaseIterable {
         .yi,
         .yo,
         .za,
-        .zu
+        .zu,
     ]
 }

@@ -3,8 +3,8 @@
 //
 // Language code representation
 
-import Standards
 import INCITS_4_1986
+import Standards
 
 extension ISO_639 {
     /// Language code per ISO 639

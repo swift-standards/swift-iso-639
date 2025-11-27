@@ -494,6 +494,6 @@ extension ISO_639.Alpha3: CaseIterable {
         .zul,
         .zun,
         .zxx,
-        .zza
+        .zza,
     ]
 }

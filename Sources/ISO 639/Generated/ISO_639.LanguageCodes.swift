@@ -200,7 +200,7 @@ extension ISO_639 {
         .yi: .yid,  // Yiddish
         .yo: .yor,  // Yoruba
         .za: .zha,  // Zhuang; Chuang
-        .zu: .zul  // Zulu
+        .zu: .zul,  // Zulu
     ]
 
     /// Mapping from ISO 639-2 (3-letter) to ISO 639-1 (2-letter) codes

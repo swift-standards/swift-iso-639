@@ -3,8 +3,8 @@
 //
 // Three-letter language code (ISO 639-2/3)
 
-import Standards
 import INCITS_4_1986
+import Standards
 
 extension ISO_639 {
     /// Three-letter language code per ISO 639-2/3
@@ -27,7 +27,7 @@ extension ISO_639 {
     public struct Alpha3: Sendable, Equatable, Hashable {
         /// The three-letter code value
         public let value: String
-        
+
         /// Creates a three-letter code (partial function)
         ///
         /// Validates that the string is a recognized ISO 639-2/3 code.
@@ -114,4 +114,3 @@ extension ISO_639.Alpha3 {
         self = alpha3
     }
 }
-

@@ -3,8 +3,8 @@
 //
 // Two-letter language code (ISO 639-1)
 
-import Standards
 import INCITS_4_1986
+import Standards
 
 extension ISO_639 {
     /// Two-letter language code per ISO 639-1
@@ -27,7 +27,7 @@ extension ISO_639 {
     public struct Alpha2: Sendable, Equatable, Hashable {
         /// The two-letter code value
         public let value: String
-        
+
         /// Creates a two-letter code (partial function)
         ///
         /// Validates that the string is a recognized ISO 639-1 code.
@@ -119,4 +119,3 @@ extension ISO_639.Alpha2 {
         self = alpha2
     }
 }
-

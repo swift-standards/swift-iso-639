@@ -3,8 +3,9 @@
 //
 // Comprehensive tests for ISO 639 language codes
 
-import Testing
 import Foundation
+import Testing
+
 @testable import ISO_639
 
 @Suite
@@ -228,16 +229,16 @@ struct `ISO 639 Language Codes` {
     @Test
     func `LanguageCode: All major languages`() throws {
         let testCases: [(String, String, String)] = [
-            ("en", "en", "eng"),   // English
-            ("zh", "zh", "zho"),   // Chinese
-            ("es", "es", "spa"),   // Spanish
-            ("ar", "ar", "ara"),   // Arabic
-            ("fr", "fr", "fra"),   // French
-            ("de", "de", "deu"),   // German
-            ("ja", "ja", "jpn"),   // Japanese
-            ("ru", "ru", "rus"),   // Russian
-            ("pt", "pt", "por"),   // Portuguese
-            ("it", "it", "ita"),   // Italian
+            ("en", "en", "eng"),  // English
+            ("zh", "zh", "zho"),  // Chinese
+            ("es", "es", "spa"),  // Spanish
+            ("ar", "ar", "ara"),  // Arabic
+            ("fr", "fr", "fra"),  // French
+            ("de", "de", "deu"),  // German
+            ("ja", "ja", "jpn"),  // Japanese
+            ("ru", "ru", "rus"),  // Russian
+            ("pt", "pt", "por"),  // Portuguese
+            ("it", "it", "ita"),  // Italian
         ]
 
         for (input, expectedAlpha2, expectedAlpha3) in testCases {
@@ -250,16 +251,16 @@ struct `ISO 639 Language Codes` {
     @Test
     func `LanguageCode: Indian languages`() throws {
         let testCases: [(String, String, String)] = [
-            ("hi", "hi", "hin"),   // Hindi
-            ("bn", "bn", "ben"),   // Bengali
-            ("pa", "pa", "pan"),   // Punjabi
-            ("te", "te", "tel"),   // Telugu
-            ("mr", "mr", "mar"),   // Marathi
-            ("ta", "ta", "tam"),   // Tamil
-            ("ur", "ur", "urd"),   // Urdu
-            ("gu", "gu", "guj"),   // Gujarati
-            ("kn", "kn", "kan"),   // Kannada
-            ("ml", "ml", "mal"),   // Malayalam
+            ("hi", "hi", "hin"),  // Hindi
+            ("bn", "bn", "ben"),  // Bengali
+            ("pa", "pa", "pan"),  // Punjabi
+            ("te", "te", "tel"),  // Telugu
+            ("mr", "mr", "mar"),  // Marathi
+            ("ta", "ta", "tam"),  // Tamil
+            ("ur", "ur", "urd"),  // Urdu
+            ("gu", "gu", "guj"),  // Gujarati
+            ("kn", "kn", "kan"),  // Kannada
+            ("ml", "ml", "mal"),  // Malayalam
         ]
 
         for (input, expectedAlpha2, expectedAlpha3) in testCases {
@@ -360,7 +361,7 @@ struct `ISO 639 Language Codes` {
 
     @Test
     func `LanguageCode: Decode invalid code fails`() throws {
-        let invalidJSON = "\"zz\"".data(using: .utf8)!
+        let invalidJSON = Data("\"zz\"".utf8)
         let decoder = JSONDecoder()
 
         #expect(throws: ISO_639.Alpha2.Error.invalidAlpha2Code("zz")) {
