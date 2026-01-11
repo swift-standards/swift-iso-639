@@ -7,7 +7,7 @@
 // Generated from JSON data files using Scripts/generate-language-codes.swift
 // To update: modify JSON files in Resources/ then run: swift Scripts/generate-language-codes.swift
 
-import Standards
+import Standard_Library_Extensions
 
 extension ISO_639 {
     /// Mapping from ISO 639-1 (2-letter) to ISO 639-2/T (3-letter) codes

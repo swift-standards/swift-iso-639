@@ -3,7 +3,7 @@
 //
 // Error types for ISO 639 validation
 
-import Standards
+import Standard_Library_Extensions
 
 extension ISO_639 {
     /// Errors that can occur when working with language codes

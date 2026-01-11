@@ -4,7 +4,7 @@
 // Three-letter language code (ISO 639-2/3)
 
 import INCITS_4_1986
-import Standards
+import Standard_Library_Extensions
 
 extension ISO_639 {
     /// Three-letter language code per ISO 639-2/3

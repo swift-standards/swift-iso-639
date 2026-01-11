@@ -4,7 +4,7 @@
 // Language code representation
 
 import INCITS_4_1986
-import Standards
+import Standard_Library_Extensions
 
 extension ISO_639 {
     /// Language code per ISO 639

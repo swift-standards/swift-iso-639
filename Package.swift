@@ -10,9 +10,9 @@ extension String { var tests: Self { self + " Tests" } }
 
 extension Target.Dependency {
     static var iso639: Self { .target(name: .iso639) }
-    static var standards: Self { .product(name: "Standards", package: "swift-standards") }
+    static var standards: Self { .product(name: "Standard Library Extensions", package: "swift-standard-library-extensions") }
     static var incits_4_1986: Self { .product(name: "INCITS 4 1986", package: "swift-incits-4-1986") }
-    static var standardsTestSupport: Self { .product(name: "StandardsTestSupport", package: "swift-standards") }
+    static var standardsTestSupport: Self { .product(name: "Test Primitives", package: "swift-test-primitives") }
 }
 
 let package = Package(
@@ -27,8 +27,9 @@ let package = Package(
         .library(name: .iso639, targets: [.iso639]),
     ],
     dependencies: [
-        .package(url: "https://github.com/swift-standards/swift-standards", from: "0.10.0"),
-        .package(url: "https://github.com/swift-standards/swift-incits-4-1986", from: "0.6.3")
+        .package(path: "../../swift-primitives/swift-standard-library-extensions"),
+        .package(path: "../../swift-primitives/swift-test-primitives"),
+        .package(path: "../swift-incits-4-1986")
     ],
     targets: [
         .target(

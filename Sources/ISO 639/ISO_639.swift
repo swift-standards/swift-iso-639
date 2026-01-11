@@ -3,7 +3,7 @@
 //
 // ISO 639: Codes for the representation of names of languages
 
-import Standards
+import Standard_Library_Extensions
 
 /// ISO 639: Codes for the representation of names of languages
 ///
