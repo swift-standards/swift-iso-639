@@ -3,7 +3,7 @@
 //
 // Language code representation
 
-import INCITS_4_1986
+import ASCII
 import Standard_Library_Extensions
 
 extension ISO_639 {
