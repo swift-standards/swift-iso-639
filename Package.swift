@@ -24,32 +24,23 @@ let package = Package(
         .watchOS(.v26)
     ],
     products: [
-        .library(name: .iso639, targets: [.iso639]),
+        .library(name: "ISO 639", targets: ["ISO 639"])
     ],
     dependencies: [
         .package(path: "../../swift-primitives/swift-standard-library-extensions"),
-        .package(path: "../../swift-primitives/swift-test-primitives"),
         .package(path: "../../swift-foundations/swift-ascii")
     ],
     targets: [
         .target(
-            name: .iso639,
+            name: "ISO 639",
             dependencies: [
                 .standards,
                 .incits_4_1986
             ],
             resources: [
                 .copy("Resources")
-            ]
-        ),
-        .testTarget(
-            name: .iso639.tests,
-            dependencies: [
-                .iso639,
-                .incits_4_1986,
-                .standardsTestSupport
-            ]
-        ),
+    ]
+        )
     ],
     swiftLanguageModes: [.v6]
 )
