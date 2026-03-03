@@ -300,11 +300,11 @@ struct `ISO 639 Language Codes` {
 
     @Test
     func `LanguageCode: Invalid codes`() {
-        #expect(throws: ISO_639.Alpha2.Error.invalidAlpha2Code("zz")) {
+        #expect(throws: ISO_639.Error.invalidAlpha2Code("zz")) {
             try ISO_639.LanguageCode("zz")
         }
 
-        #expect(throws: ISO_639.Alpha3.Error.invalidAlpha3Code("zzz")) {
+        #expect(throws: ISO_639.Error.invalidAlpha3Code("zzz")) {
             try ISO_639.LanguageCode("zzz")
         }
 
@@ -364,7 +364,7 @@ struct `ISO 639 Language Codes` {
         let invalidJSON = Data("\"zz\"".utf8)
         let decoder = JSONDecoder()
 
-        #expect(throws: ISO_639.Alpha2.Error.invalidAlpha2Code("zz")) {
+        #expect(throws: ISO_639.Error.invalidAlpha2Code("zz")) {
             try decoder.decode(ISO_639.LanguageCode.self, from: invalidJSON)
         }
     }
@@ -380,11 +380,11 @@ struct `ISO 639 Language Codes` {
 
     @Test
     func `Edge: Whitespace`() {
-        #expect(throws: ISO_639.Alpha3.Error.invalidCharacters(" en")) {
+        #expect(throws: ISO_639.Error.invalidCharacters(" en")) {
             try ISO_639.LanguageCode(" en")
         }
 
-        #expect(throws: ISO_639.Alpha3.Error.invalidCharacters("en ")) {
+        #expect(throws: ISO_639.Error.invalidCharacters("en ")) {
             try ISO_639.LanguageCode("en ")
         }
 
@@ -395,11 +395,11 @@ struct `ISO 639 Language Codes` {
 
     @Test
     func `Edge: Unicode characters`() {
-        #expect(throws: ISO_639.Alpha2.Error.invalidCharacters("ën")) {
+        #expect(throws: ISO_639.Error.invalidCharacters("ën")) {
             try ISO_639.LanguageCode("ën")
         }
 
-        #expect(throws: ISO_639.Alpha2.Error.invalidCharacters("日本")) {
+        #expect(throws: ISO_639.Error.invalidCharacters("日本")) {
             try ISO_639.LanguageCode("日本")
         }
     }

@@ -70,26 +70,42 @@ extension ISO_639.LanguageCode {
     ///
     /// - Parameter code: Language code string (2 or 3 letters)
     /// - Throws: `ISO_639.Error` if the code is invalid
-    public init(_ code: some StringProtocol) throws {
+    public init(_ code: some StringProtocol) throws(ISO_639.Error) {
         let normalized = code.lowercased()
 
         switch normalized.count {
         case 2:
             // Validate and create alpha2
-            let alpha2 = try ISO_639.Alpha2(normalized)
-            // Use authoritative conversion to get alpha3
-            let alpha3 = ISO_639.Alpha3(alpha2)
-            self.init(alpha2: alpha2, alpha3: alpha3)
+            do {
+                let alpha2 = try ISO_639.Alpha2(normalized)
+                // Use authoritative conversion to get alpha3
+                let alpha3 = ISO_639.Alpha3(alpha2)
+                self.init(alpha2: alpha2, alpha3: alpha3)
+            } catch {
+                switch error {
+                case .invalidCodeLength(let n): throw .invalidCodeLength(n)
+                case .invalidCharacters(let s): throw .invalidCharacters(s)
+                case .invalidAlpha2Code(let s): throw .invalidAlpha2Code(s)
+                }
+            }
 
         case 3:
             // Validate and create alpha3
-            let alpha3 = try ISO_639.Alpha3(normalized)
-            // Use authoritative conversion to get alpha2 (if available)
-            let alpha2 = ISO_639.Alpha2(alpha3)
-            self.init(alpha2: alpha2, alpha3: alpha3)
+            do {
+                let alpha3 = try ISO_639.Alpha3(normalized)
+                // Use authoritative conversion to get alpha2 (if available)
+                let alpha2 = ISO_639.Alpha2(alpha3)
+                self.init(alpha2: alpha2, alpha3: alpha3)
+            } catch {
+                switch error {
+                case .invalidCodeLength(let n): throw .invalidCodeLength(n)
+                case .invalidCharacters(let s): throw .invalidCharacters(s)
+                case .invalidAlpha3Code(let s): throw .invalidAlpha3Code(s)
+                }
+            }
 
         default:
-            throw ISO_639.Error.invalidCodeLength(normalized.count)
+            throw .invalidCodeLength(normalized.count)
         }
     }
 }

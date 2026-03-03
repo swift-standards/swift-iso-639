@@ -34,7 +34,7 @@ extension ISO_639 {
         ///
         /// - Parameter value: Two-letter code string
         /// - Throws: `Alpha2.Error` if invalid
-        public init(_ value: some StringProtocol) throws {
+        public init(_ value: some StringProtocol) throws(Error) {
             let normalized = value.lowercased()
 
             // Validate length
